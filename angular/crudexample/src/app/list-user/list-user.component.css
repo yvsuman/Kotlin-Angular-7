@@ -1,0 +1,15 @@
+/* table {
+  width: 100%;
+  margin:5px;
+}
+.my-mat-cell,
+.my-mat-header-cell {
+  flex: 0 0 30%;
+} */
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

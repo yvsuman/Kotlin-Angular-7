@@ -1,0 +1,78 @@
+<div class="example-header" fxLayout="row">
+  <mat-toolbar>
+    <mat-toolbar-row>
+        <span>ADD USER</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div class="example-container">
+<mat-card>
+  <mat-card-content>
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+              <table>
+                  <tr>
+                      <td>
+                          <mat-form-field class="demo-full-width">
+                              <input formControlName="firstname" matInput placeholder="First Name">
+                          </mat-form-field>
+                          <mat-error>
+                              <span *ngIf="!addForm.get('firstname').valid && addForm.get('firstname').touched">Please enter First Name !!!</span>
+                          </mat-error>
+                      </td>
+                      <td>
+                          <mat-form-field class="demo-full-width">
+                              <input formControlName="lastname" matInput placeholder="Last Name">
+                          </mat-form-field>
+                          <mat-error>
+                              <span *ngIf="!addForm.get('lastname').valid && addForm.get('lastname').touched">Please enter Last Name !!!</span>
+                          </mat-error>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td colspan="2">
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="email" matInput placeholder="Email">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!addForm.get('email').valid && addForm.get('email').touched">Please enter Email !!!</span>
+                        </mat-error>
+                      </td>
+                  </tr>
+                  <tr>
+                   <td colspan="2" class="content-center">
+                       <button mat-raised-button color="accent" [disabled]="!addForm.valid">Submit</button>
+                   </td>
+               </tr>
+              </table>
+          </form>
+      </mat-card-content>
+  </mat-card>
+
+</div>
+
+
+
+
+
+
+
+<!-- <div class="col-md-6">
+  <h2 class="text-center">Add User</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+    </div>
+
+    <button class="btn btn-success">Update</button>
+  </form>
+</div> -->

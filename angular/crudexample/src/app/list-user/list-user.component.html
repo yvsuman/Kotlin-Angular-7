@@ -1,0 +1,54 @@
+<div class="example-header" fxLayout="row">
+  <mat-toolbar>
+    <mat-toolbar-row>
+        <span>User Details</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button (click)="addUser(user)" >
+        <mat-icon class="example-icon">person_add</mat-icon>
+        </button>
+
+      </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<div class="example-container mat-elevation-z8">
+  <mat-table [dataSource]="users" matSort>
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="firstname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> FirstName </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="id"> {{row.firstname}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> LastName </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="id"> {{row.lastname}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="id"> {{row.email}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="id">
+      <button mat-icon-button  (click)="deleteUser(row)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button (click)="updateUser(row)" >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;">
+  </mat-row>
+
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+</div>
